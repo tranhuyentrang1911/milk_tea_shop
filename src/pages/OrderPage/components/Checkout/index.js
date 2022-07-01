@@ -76,6 +76,7 @@ const Checkout = () => {
         phone,
         price: totalOrderPrice,
         note,
+        address: values.address,
         payment,
         status: "Đang giao hàng",
       };
@@ -85,6 +86,7 @@ const Checkout = () => {
           cartIdArray.push(item.id);
         }
       });
+      console.log("newOrder", newOrder);
       cartIdArray.forEach((item) => dispatch(deleteProductToCart(item)));
       dispatch(addNewOrder(newOrder));
       showSuccess("Đặt hàng");

@@ -1,8 +1,10 @@
 import { BackTop } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 
 import svga from "assets/svg";
+import Loading from "components/Loading";
 import NotFound from "components/NotFound";
 
 import styles from "../../common/backTop.module.scss";
@@ -16,8 +18,19 @@ import Footer from "./layouts/Footer";
 import Header from "./layouts/Header";
 
 const HomePage = () => {
+  const loading = useSelector((state) => state.users.status);
+
+  useEffect(() => {
+    const loadingModal = document.getElementById("loading");
+    if (loading === "loading") {
+      loadingModal.style.display = "flex";
+    } else {
+      loadingModal.style.display = "none";
+    }
+  }, [loading]);
   return (
     <>
+      <Loading />
       <SignUp />
       <SignIn />
       <BackTop>

@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+
 import { showError, showMessage, showSuccess } from "assets/handleManyThings";
 
 const usersSlice = createSlice({
@@ -31,7 +32,7 @@ const usersSlice = createSlice({
         showError("Đăng kí");
       })
       .addCase(signInThunk.pending, (state, action) => {
-        state.status = "pending";
+        state.status = "loading";
       })
       .addCase(signInThunk.fulfilled, (state, action) => {
         state.status = "idle";
