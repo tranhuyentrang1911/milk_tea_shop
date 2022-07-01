@@ -1,0 +1,14 @@
+@import "../../components/GlobalStyles/globalStyles.scss";
+.scrollTop {
+    display: none;
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    height: 40px;
+    width: 40px;
+    svg {
+        height: 40px;
+        width: 40px;
+        fill: $primary-color;
+    }
+}
